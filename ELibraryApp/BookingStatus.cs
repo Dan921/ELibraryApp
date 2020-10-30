@@ -12,18 +12,18 @@ namespace ELibraryApp
     using System;
     using System.Collections.Generic;
     
-    public partial class BookReservationJournal
+    public partial class BookingStatus
     {
-        public int RecordId { get; set; }
-        public Nullable<System.DateTime> BookingStartDate { get; set; }
-        public Nullable<System.DateTime> BookingEndDate { get; set; }
-        public int ReservationCode { get; set; }
-        public int BookingStatusId { get; set; }
-        public int ReaderId { get; set; }
-        public int BookId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BookingStatus()
+        {
+            this.BookReservationJournals = new HashSet<BookReservationJournal>();
+        }
     
-        public virtual BookingStatus BookingStatus { get; set; }
-        public virtual Book Book { get; set; }
-        public virtual Reader Reader { get; set; }
+        public int StatusId { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookReservationJournal> BookReservationJournals { get; set; }
     }
 }

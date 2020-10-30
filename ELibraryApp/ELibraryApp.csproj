@@ -70,18 +70,31 @@
     <Compile Include="Book.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingStatus.cs">
+      <DependentUpon>ELibraryDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="BookReservationJournal.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ELibraryDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ELibraryDB.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="ELibraryDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ELibraryDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ELibraryDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Reader.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="Role.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
@@ -90,11 +103,17 @@
     <Compile Include="Views\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BookingWindow.xaml.cs">
+      <DependentUpon>BookingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LibrarianWindow.xaml.cs">
       <DependentUpon>LibrarianWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReaderWindow.xaml.cs">
       <DependentUpon>ReaderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationWindow.xaml.cs">
+      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -104,16 +123,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ELibraryDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ELibraryDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ELibraryDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ELibraryDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -122,11 +131,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BookingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LibrarianWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReaderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,10 +183,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ELibraryDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ELibraryDB.Context.cs</LastGenOutput>
       <DependentUpon>ELibraryDB.edmx</DependentUpon>
+      <LastGenOutput>ELibraryDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ELibraryDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -177,9 +197,5 @@
       <LastGenOutput>ELibraryDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

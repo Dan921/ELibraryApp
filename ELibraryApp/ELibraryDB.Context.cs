@@ -26,10 +26,11 @@ namespace ELibraryApp
         }
     
         public virtual DbSet<Author> Authors { get; set; }
+        public virtual DbSet<BookingStatus> BookingStatuses { get; set; }
         public virtual DbSet<BookReservationJournal> BookReservationJournals { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Reader> Readers { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

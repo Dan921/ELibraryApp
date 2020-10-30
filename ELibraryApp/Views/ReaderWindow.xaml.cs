@@ -20,11 +20,31 @@ namespace ELibraryApp.Views
     public partial class ReaderWindow : Window
     {
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
+        int _readerId;
 
-        public ReaderWindow()
+        public ReaderWindow(int readerId)
         {
             InitializeComponent();
             BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
+            HistoryDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
+            _readerId = readerId;
+        }
+
+        private void ToBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (BooksDataGrid.SelectedItems.Count > 0)
+            {
+                Book book = (Book)BooksDataGrid.SelectedItems[0];
+                BookingWindow bookingWindow = new BookingWindow(book.BookId, _readerId);
+                bookingWindow.Show();
+            }
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

@@ -7,15 +7,22 @@
     <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FIO" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="BookingStatuses">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="BookReservationJournal">
     <Key>
       <PropertyRef Name="RecordId" />
     </Key>
-    <Property Name="RecordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecordId" Type="int" Nullable="false" />
     <Property Name="BookingStartDate" Type="date" />
     <Property Name="BookingEndDate" Type="date" />
-    <Property Name="ReservationCode" Type="int" />
-    <Property Name="BookingStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReservationCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingStatusId" Type="int" Nullable="false" />
     <Property Name="ReaderId" Type="int" Nullable="false" />
     <Property Name="BookId" Type="int" Nullable="false" />
   </EntityType>
@@ -27,7 +34,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="AuthorId" Type="int" Nullable="false" />
     <Property Name="PublishingYear" Type="int" />
-    <Property Name="Description" Type="text" />
+    <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="CoverImage" Type="varbinary(max)" />
     <Property Name="Genre" Type="nvarchar" MaxLength="50" />
     <Property Name="NumberOfCopies" Type="int" />
@@ -47,15 +54,12 @@
     <Property Name="Rating" Type="int" />
     <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="Roles">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -64,9 +68,23 @@
     <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="IsBlocked" Type="bit" />
-    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsBlocked" Type="bit" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
   </EntityType>
+  <Association Name="FK_BookReservationJournal_BookingStatuses">
+    <End Role="BookingStatuses" Type="Self.BookingStatuses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BookReservationJournal" Type="Self.BookReservationJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingStatuses">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="BookReservationJournal">
+        <PropertyRef Name="BookingStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_BookReservationJournal_Books">
     <End Role="Books" Type="Self.Books" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -123,13 +141,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="Хранилище ELibraryDBModelContainer">
     <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookingStatuses" EntityType="Self.BookingStatuses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BookReservationJournal" EntityType="Self.BookReservationJournal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Readers" EntityType="Self.Readers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BookReservationJournal_BookingStatuses" Association="Self.FK_BookReservationJournal_BookingStatuses">
+      <End Role="BookingStatuses" EntitySet="BookingStatuses" />
+      <End Role="BookReservationJournal" EntitySet="BookReservationJournal" />
+    </AssociationSet>
     <AssociationSet Name="FK_BookReservationJournal_Books" Association="Self.FK_BookReservationJournal_Books">
       <End Role="Books" EntitySet="Books" />
       <End Role="BookReservationJournal" EntitySet="BookReservationJournal" />
@@ -145,6 +182,10 @@
     <AssociationSet Name="FK_Readers_Users" Association="Self.FK_Readers_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="Readers" EntitySet="Readers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -42,25 +42,32 @@ namespace ELibraryApp
             }
             else
             {
-                switch (user.Role)
+                switch (user.RoleId)
                 {
-                    case "Читатель":
-                        ReaderWindow readerWindow = new ReaderWindow();
+                    case 1:
+                        ReaderWindow readerWindow = new ReaderWindow(eLibraryDBEntities.Readers.FirstOrDefault(r => r.UserId == user.UserId).ReaderId);
                         readerWindow.Show();
                         this.Close();
                         break;
-                    case "Библиотекарь":
+                    case 2:
                         LibrarianWindow librarianWindow = new LibrarianWindow();
                         librarianWindow.Show();
                         this.Close();
                         break;
-                    case "Администратор":
+                    case 3:
                         AdminWindow adminWindow = new AdminWindow();
                         adminWindow.Show();
                         this.Close();
                         break;
                 }
             }
+        }
+
+        private void RegistrationButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationWindow registrationWindow = new RegistrationWindow();
+            registrationWindow.Show();
+            this.Close();
         }
     }
 }

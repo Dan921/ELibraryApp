@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\App.xaml
-4-309228312
+63730072
 2-1933795134
-18271272686
+21-506980290
 18-764869788
-MainWindow.xaml;Views\AdminWindow.xaml;Views\LibrarianWindow.xaml;Views\ReaderWindow.xaml;
+MainWindow.xaml;Views\AdminWindow.xaml;Views\BookingWindow.xaml;Views\LibrarianWindow.xaml;Views\ReaderWindow.xaml;Views\RegistrationWindow.xaml;
 
-True
+False
 
