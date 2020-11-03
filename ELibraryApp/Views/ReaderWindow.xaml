@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryApp.Views"
         mc:Ignorable="d"
-        Title="Кабинет читателя" Height="450" Width="800" Background="#FF536A50">
+        Title="Кабинет читателя" Height="477" Width="829" Background="#FF536A50">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Margin="10,10,0,0">
             <TabItem Header="Книги" BorderBrush="Black" Background="#FF937F5C">
                 <Grid>
                     <Grid.Background>
@@ -22,7 +22,7 @@
                     </Grid.RowDefinitions>
                     <DataGrid Name="BooksDataGrid" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="627" Margin="10,10,0,0" Grid.RowSpan="2" BorderBrush="Black"/>
                     <Button Content="Забронировать" HorizontalAlignment="Left" Margin="642,10,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ToBookButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
-                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="642,65,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
+                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="642,136,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial" Grid.Row="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="История" BorderBrush="Black" Background="#FF937F5C">

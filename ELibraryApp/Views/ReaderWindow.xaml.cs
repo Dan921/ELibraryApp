@@ -26,7 +26,7 @@ namespace ELibraryApp.Views
         {
             InitializeComponent();
             BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
-            HistoryDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
+            HistoryDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == readerId).ToList();
             _readerId = readerId;
         }
 

@@ -37,8 +37,8 @@ namespace ELibraryApp.Views
         {
             //try
             //{
-                _bookReservationJournal.BookingStartDate = StartDatePicker.SelectedDate;
-                _bookReservationJournal.BookingEndDate = EndDatePicker.SelectedDate;
+                _bookReservationJournal.BookingStartDate = (DateTime)StartDatePicker.SelectedDate;
+                _bookReservationJournal.BookingEndDate = (DateTime)EndDatePicker.SelectedDate;
                 _bookReservationJournal.BookingStatusId = 1;
                 _bookReservationJournal.ReaderId = _readerId;
                 _bookReservationJournal.BookId = _bookId;

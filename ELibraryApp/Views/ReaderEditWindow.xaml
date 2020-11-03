@@ -1,0 +1,22 @@
+﻿<Window x:Class="ELibraryApp.Views.ReaderEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ELibraryApp.Views"
+        mc:Ignorable="d"
+        Title="Читатель" Height="352" Width="349">
+    <Grid>
+        <Label Content="ФИО" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="16" FontFamily="Arial"/>
+        <Label Content="Телефон" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="16" FontFamily="Arial"/>
+        <Label Content="Рейтинг" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="16" FontFamily="Arial"/>
+        <Label Content="Дата рождения" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="16" FontFamily="Arial"/>
+        <TextBox Name="FIOTextBox" HorizontalAlignment="Left" Height="40" Margin="155,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontSize="16" FontFamily="Arial"/>
+        <TextBox Name="PhoneTextBox" HorizontalAlignment="Left" Height="40" Margin="155,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontSize="16" FontFamily="Arial"/>
+        <TextBox Name="RatingTextBox" HorizontalAlignment="Left" Height="40" Margin="155,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontSize="16" FontFamily="Arial"/>
+        <DatePicker Name="BirthDatePicker" HorizontalAlignment="Left" Margin="155,145,0,0" VerticalAlignment="Top" Width="165" Height="40" FontSize="16" FontFamily="Arial"/>
+        <CheckBox Name="IsEmpCheckBox" Content="Работник колледжа" HorizontalAlignment="Left" Margin="80,205,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Arial"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="85,250,0,0" VerticalAlignment="Top" Width="160" Height="45" FontSize="16" FontFamily="Arial" Click="SaveButton_Click"/>
+
+    </Grid>
+</Window>

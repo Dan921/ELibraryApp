@@ -29,3 +29,8 @@ C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\Registration
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\RegistrationWindow.baml
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\BookingWindow.g.cs
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\BookingWindow.baml
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.csprojAssemblyReference.cache
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\BookWindow.g.cs
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\ReaderEditWindow.g.cs
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\BookWindow.baml
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Views\ReaderEditWindow.baml

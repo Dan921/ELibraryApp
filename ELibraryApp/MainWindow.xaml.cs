@@ -50,12 +50,12 @@ namespace ELibraryApp
                         this.Close();
                         break;
                     case 2:
-                        LibrarianWindow librarianWindow = new LibrarianWindow();
+                        LibrarianWindow librarianWindow = new LibrarianWindow(user.UserId);
                         librarianWindow.Show();
                         this.Close();
                         break;
                     case 3:
-                        AdminWindow adminWindow = new AdminWindow();
+                        AdminWindow adminWindow = new AdminWindow(user.UserId);
                         adminWindow.Show();
                         this.Close();
                         break;

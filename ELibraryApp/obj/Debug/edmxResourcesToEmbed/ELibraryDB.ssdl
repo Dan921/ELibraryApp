@@ -18,10 +18,10 @@
     <Key>
       <PropertyRef Name="RecordId" />
     </Key>
-    <Property Name="RecordId" Type="int" Nullable="false" />
-    <Property Name="BookingStartDate" Type="date" />
-    <Property Name="BookingEndDate" Type="date" />
-    <Property Name="ReservationCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingStartDate" Type="date" Nullable="false" />
+    <Property Name="BookingEndDate" Type="date" Nullable="false" />
+    <Property Name="ReservationCode" Type="int" />
     <Property Name="BookingStatusId" Type="int" Nullable="false" />
     <Property Name="ReaderId" Type="int" Nullable="false" />
     <Property Name="BookId" Type="int" Nullable="false" />

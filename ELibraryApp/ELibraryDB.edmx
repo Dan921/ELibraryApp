@@ -23,10 +23,10 @@
           <Key>
             <PropertyRef Name="RecordId" />
           </Key>
-          <Property Name="RecordId" Type="int" Nullable="false" />
-          <Property Name="BookingStartDate" Type="date" />
-          <Property Name="BookingEndDate" Type="date" />
-          <Property Name="ReservationCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookingStartDate" Type="date" Nullable="false" />
+          <Property Name="BookingEndDate" Type="date" Nullable="false" />
+          <Property Name="ReservationCode" Type="int" />
           <Property Name="BookingStatusId" Type="int" Nullable="false" />
           <Property Name="ReaderId" Type="int" Nullable="false" />
           <Property Name="BookId" Type="int" Nullable="false" />
@@ -218,10 +218,10 @@
           <Key>
             <PropertyRef Name="RecordId" />
           </Key>
-          <Property Name="RecordId" Type="Int32" Nullable="false" />
-          <Property Name="BookingStartDate" Type="DateTime" Precision="0" />
-          <Property Name="BookingEndDate" Type="DateTime" Precision="0" />
-          <Property Name="ReservationCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookingStartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BookingEndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReservationCode" Type="Int32" />
           <Property Name="BookingStatusId" Type="Int32" Nullable="false" />
           <Property Name="ReaderId" Type="Int32" Nullable="false" />
           <Property Name="BookId" Type="Int32" Nullable="false" />

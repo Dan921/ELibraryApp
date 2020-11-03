@@ -15,9 +15,9 @@ namespace ELibraryApp
     public partial class BookReservationJournal
     {
         public int RecordId { get; set; }
-        public Nullable<System.DateTime> BookingStartDate { get; set; }
-        public Nullable<System.DateTime> BookingEndDate { get; set; }
-        public int ReservationCode { get; set; }
+        public System.DateTime BookingStartDate { get; set; }
+        public System.DateTime BookingEndDate { get; set; }
+        public Nullable<int> ReservationCode { get; set; }
         public int BookingStatusId { get; set; }
         public int ReaderId { get; set; }
         public int BookId { get; set; }
