@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("elibrarydb.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("elibrarydb.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/elibrarydb.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/elibrarydb.tt")]
 
 

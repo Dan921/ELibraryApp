@@ -64,64 +64,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Author.cs">
+    <Compile Include="Database\Author.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs">
+    <Compile Include="Database\Book.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="BookingStatus.cs">
+    <Compile Include="Database\BookingStatus.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="BookReservationJournal.cs">
+    <Compile Include="Database\BookReservationJournal.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ELibraryDB.Context.cs">
+    <Compile Include="Database\ELibraryDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ELibraryDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ELibraryDB.cs">
+    <Compile Include="Database\ELibraryDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ELibraryDB.Designer.cs">
+    <Compile Include="Database\ELibraryDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ELibraryDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Reader.cs">
+    <Compile Include="Database\Reader.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
+    <Compile Include="Database\Role.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="Database\User.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Views\AdminWindow.xaml.cs">
+    <Compile Include="Logic\PasswordHelper.cs" />
+    <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BookingWindow.xaml.cs">
+    <Compile Include="Windows\BookingWindow.xaml.cs">
       <DependentUpon>BookingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BookWindow.xaml.cs">
+    <Compile Include="Windows\BookWindow.xaml.cs">
       <DependentUpon>BookWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LibrarianWindow.xaml.cs">
+    <Compile Include="Windows\LibrarianWindow.xaml.cs">
       <DependentUpon>LibrarianWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReaderEditWindow.xaml.cs">
+    <Compile Include="Windows\ReaderEditWindow.xaml.cs">
       <DependentUpon>ReaderEditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReaderWindow.xaml.cs">
+    <Compile Include="Windows\ReaderWindow.xaml.cs">
       <DependentUpon>ReaderWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegistrationWindow.xaml.cs">
+    <Compile Include="Windows\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -129,35 +130,35 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Windows\AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\AdminWindow.xaml">
+    <Page Include="Windows\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BookingWindow.xaml">
+    <Page Include="Windows\BookingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BookWindow.xaml">
+    <Page Include="Windows\BookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LibrarianWindow.xaml">
+    <Page Include="Windows\LibrarianWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ReaderEditWindow.xaml">
+    <Page Include="Windows\ReaderEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ReaderWindow.xaml">
+    <Page Include="Windows\ReaderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RegistrationWindow.xaml">
+    <Page Include="Windows\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,11 +181,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ELibraryDB.edmx">
+    <EntityDeploy Include="Database\ELibraryDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ELibraryDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ELibraryDB.edmx.diagram">
+    <None Include="Database\ELibraryDB.edmx.diagram">
       <DependentUpon>ELibraryDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -200,16 +201,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ELibraryDB.Context.tt">
+    <Content Include="Database\ELibraryDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ELibraryDB.edmx</DependentUpon>
       <LastGenOutput>ELibraryDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ELibraryDB.tt">
+    <Content Include="Database\ELibraryDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ELibraryDB.edmx</DependentUpon>
       <LastGenOutput>ELibraryDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
