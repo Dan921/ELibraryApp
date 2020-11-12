@@ -33,3 +33,4 @@ C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.csproj
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.csproj.CopyComplete
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.exe
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.pdb
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.csprojAssemblyReference.cache

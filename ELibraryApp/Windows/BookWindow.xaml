@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryApp.Views"
         mc:Ignorable="d"
-        Title="Книга" Height="497" Width="479">
+        Title="Книга" Height="497" Width="479" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Название" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="190" FontSize="16" FontFamily="Arial"/>
         <Label Content="Автор" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Height="40" Width="190" FontSize="16" FontFamily="Arial"/>

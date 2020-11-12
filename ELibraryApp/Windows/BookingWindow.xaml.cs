@@ -25,19 +25,21 @@ namespace ELibraryApp.Views
         int _bookId;
         int _readerId;
 
-        public BookingWindow(int bookId, int readerId)
+        public BookingWindow()
         {
             InitializeComponent();
-            StartDatePicker.SelectedDate = DateTime.Now;
-            EndDatePicker.SelectedDate = DateTime.Now;
+        }
+
+        public void SetData(int bookId, int readerId)
+        {
             _bookId = bookId;
             _readerId = readerId;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 _bookReservationJournal.BookingStartDate = (DateTime)StartDatePicker.SelectedDate;
                 _bookReservationJournal.BookingEndDate = (DateTime)EndDatePicker.SelectedDate;
                 _bookReservationJournal.BookingStatusId = 1;
@@ -46,11 +48,17 @@ namespace ELibraryApp.Views
                 eLibraryDBEntities.BookReservationJournals.Add(_bookReservationJournal);
                 eLibraryDBEntities.SaveChanges();
                 this.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartDatePicker.SelectedDate = DateTime.Now;
+            EndDatePicker.SelectedDate = DateTime.Now;
         }
     }
 }

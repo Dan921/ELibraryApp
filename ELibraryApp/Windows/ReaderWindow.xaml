@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryApp.Views"
         mc:Ignorable="d"
-        Title="Кабинет читателя" Height="477" Width="829" Background="#FF536A50">
+        Title="Кабинет читателя" Height="477" Width="814" Background="#FF536A50" Loaded="Window_Loaded">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Margin="10,10,0,0">
-            <TabItem Header="Книги" BorderBrush="Black" Background="#FF937F5C">
+        <TabControl HorizontalAlignment="Left" Height="446" VerticalAlignment="Top" Width="806">
+            <TabItem Header="Все книги" BorderBrush="Black" Background="#FF937F5C">
                 <Grid>
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -20,9 +20,9 @@
                         <RowDefinition Height="195*"/>
                         <RowDefinition Height="196*"/>
                     </Grid.RowDefinitions>
-                    <DataGrid Name="BooksDataGrid" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="627" Margin="10,10,0,0" Grid.RowSpan="2" BorderBrush="Black"/>
-                    <Button Content="Забронировать" HorizontalAlignment="Left" Margin="642,10,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ToBookButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
-                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="642,136,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial" Grid.Row="1"/>
+                    <DataGrid Name="BooksDataGrid" HorizontalAlignment="Left" Height="398" VerticalAlignment="Top" Width="627" Grid.RowSpan="2" BorderBrush="Black" Margin="10,10,0,0"/>
+                    <Button Content="Забронировать" HorizontalAlignment="Left" Margin="642,10,0,0" VerticalAlignment="Top" Width="148" Height="50" Click="ToBookButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
+                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="642,150,0,0" VerticalAlignment="Top" Width="148" Height="50" Click="ExitButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial" Grid.Row="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="История" BorderBrush="Black" Background="#FF937F5C">
@@ -33,7 +33,20 @@
                             <GradientStop Color="#FF536A50" Offset="1"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <DataGrid Name="HistoryDataGrid" HorizontalAlignment="Left" Width="766" Margin="10,10,0,10"/>
+                    <DataGrid Name="HistoryDataGrid" HorizontalAlignment="Left" Width="780" Margin="10,10,0,10"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Доступные книги" BorderBrush="Black" Background="#FF937F5C">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF937F5C" Offset="0"/>
+                            <GradientStop Color="#FF536A50" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <DataGrid Name="AvailableBooksGrid" HorizontalAlignment="Left" Height="398" VerticalAlignment="Top" Width="627" Margin="10,10,0,0"/>
+                    <Button Content="Читать" HorizontalAlignment="Left" Margin="642,10,0,0" VerticalAlignment="Top" Width="148" Height="50" Click="ReadBookButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
+                    <Button Content="Вернуть" HorizontalAlignment="Left" Margin="642,65,0,0" VerticalAlignment="Top" Width="148" Height="50" Click="ReturnBookButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
                 </Grid>
             </TabItem>
         </TabControl>

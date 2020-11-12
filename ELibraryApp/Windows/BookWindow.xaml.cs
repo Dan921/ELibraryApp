@@ -23,27 +23,15 @@ namespace ELibraryApp.Views
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         Book _book = new Book();
 
+
+        public void SetData(Book book)
+        {
+            _book = eLibraryDBEntities.Books.Find(book.BookId);
+        }
+
         public BookWindow()
         {
             InitializeComponent();
-            AuthorComboBox.ItemsSource = eLibraryDBEntities.Authors.Select(a => a.FIO).ToList();
-        }
-
-        public BookWindow(Book book)
-        {
-            InitializeComponent();
-            AuthorComboBox.ItemsSource = eLibraryDBEntities.Authors.Select(a => a.FIO).ToList();
-
-            NameTextBox.Text = book.Name;
-            AuthorComboBox.SelectedItem = eLibraryDBEntities.Authors.FirstOrDefault(a => a.AuthorId == book.AuthorId).FIO;
-            YearTextBox.Text = book.PublishingYear.ToString();
-            PublCheckBox.IsChecked = book.IsPublished;
-            DescTextBox.Text = book.Description;
-            GenreTextBox.Text = book.Genre;
-            NumOfCopTextBox.Text = book.NumberOfCopies.ToString();
-            PenPointTextBox.Text = book.PenaltyPoint.ToString();
-            TagsTextBox.Text = book.Tags;
-            _book = eLibraryDBEntities.Books.Find(book.BookId);
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -75,6 +63,23 @@ namespace ELibraryApp.Views
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            AuthorComboBox.ItemsSource = eLibraryDBEntities.Authors.Select(a => a.FIO).ToList();
+            if(_book != null)
+            {
+                NameTextBox.Text = _book.Name;
+                AuthorComboBox.SelectedItem = eLibraryDBEntities.Authors.FirstOrDefault(a => a.AuthorId == _book.AuthorId).FIO;
+                YearTextBox.Text = _book.PublishingYear.ToString();
+                PublCheckBox.IsChecked = _book.IsPublished;
+                DescTextBox.Text = _book.Description;
+                GenreTextBox.Text = _book.Genre;
+                NumOfCopTextBox.Text = _book.NumberOfCopies.ToString();
+                PenPointTextBox.Text = _book.PenaltyPoint.ToString();
+                TagsTextBox.Text = _book.Tags;
             }
         }
     }

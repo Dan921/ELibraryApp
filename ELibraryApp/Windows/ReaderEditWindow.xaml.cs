@@ -23,15 +23,14 @@ namespace ELibraryApp.Views
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         Reader _reader = new Reader();
 
-        public ReaderEditWindow(Reader reader)
+        public void SetData(Reader reader)
+        {
+            _reader = eLibraryDBEntities.Readers.Find(reader.ReaderId);
+        }
+
+        public ReaderEditWindow()
         {
             InitializeComponent();
-            FIOTextBox.Text = reader.FIO;
-            PhoneTextBox.Text = reader.Phone;
-            RatingTextBox.Text = reader.Rating.ToString();
-            BirthDatePicker.SelectedDate = reader.BirthDate;
-            IsEmpCheckBox.IsChecked = reader.IsCollegeEmployee;
-            _reader = eLibraryDBEntities.Readers.Find(reader.ReaderId);
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -44,16 +43,22 @@ namespace ELibraryApp.Views
                 _reader.BirthDate = BirthDatePicker.SelectedDate;
                 _reader.IsCollegeEmployee = IsEmpCheckBox.IsChecked;
 
-                //if (_reader.ReaderId != 0)
-                //{
-                    eLibraryDBEntities.SaveChanges();
-                    this.Close();
-                //}
+                eLibraryDBEntities.SaveChanges();
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FIOTextBox.Text = _reader.FIO;
+            PhoneTextBox.Text = _reader.Phone;
+            RatingTextBox.Text = _reader.Rating.ToString();
+            BirthDatePicker.SelectedDate = _reader.BirthDate;
+            IsEmpCheckBox.IsChecked = _reader.IsCollegeEmployee;
         }
     }
 }

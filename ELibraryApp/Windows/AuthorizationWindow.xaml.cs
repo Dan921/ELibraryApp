@@ -46,17 +46,20 @@ namespace ELibraryApp
                 switch (user.RoleId)
                 {
                     case 1:
-                        ReaderWindow readerWindow = new ReaderWindow(eLibraryDBEntities.Readers.FirstOrDefault(r => r.UserId == user.UserId).ReaderId);
+                        ReaderWindow readerWindow = new ReaderWindow();
+                        readerWindow.SetData(eLibraryDBEntities.Readers.FirstOrDefault(r => r.UserId == user.UserId).ReaderId);
                         readerWindow.Show();
                         this.Close();
                         break;
                     case 2:
-                        LibrarianWindow librarianWindow = new LibrarianWindow(user.UserId);
+                        LibrarianWindow librarianWindow = new LibrarianWindow();
+                        librarianWindow.SetData(user.UserId);
                         librarianWindow.Show();
                         this.Close();
                         break;
                     case 3:
-                        AdminWindow adminWindow = new AdminWindow(user.UserId);
+                        AdminWindow adminWindow = new AdminWindow();
+                        adminWindow.SetData(user.UserId);
                         adminWindow.Show();
                         this.Close();
                         break;

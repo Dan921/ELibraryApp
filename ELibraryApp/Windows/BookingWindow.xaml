@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryApp.Views"
         mc:Ignorable="d"
-        Title="Бронирование" Height="282" Width="389">
+        Title="Бронирование" Height="282" Width="389" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Дата начала бронирования" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" Height="40" Width="200"/>
         <Label Content="Дата окончания бронирования" HorizontalAlignment="Left" Margin="25,95,0,0" VerticalAlignment="Top" Height="40" Width="200"/>

@@ -23,12 +23,14 @@ namespace ELibraryApp.Views
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         int _readerId;
 
-        public ReaderWindow(int readerId)
+        public void SetData(int readerId)
+        {
+            _readerId = readerId;
+        }
+
+        public ReaderWindow()
         {
             InitializeComponent();
-            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
-            HistoryDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == readerId).ToList();
-            _readerId = readerId;
         }
 
         private void ToBookButton_Click(object sender, RoutedEventArgs e)
@@ -36,7 +38,8 @@ namespace ELibraryApp.Views
             if (BooksDataGrid.SelectedItems.Count > 0)
             {
                 Book book = (Book)BooksDataGrid.SelectedItems[0];
-                BookingWindow bookingWindow = new BookingWindow(book.BookId, _readerId);
+                BookingWindow bookingWindow = new BookingWindow();
+                bookingWindow.SetData(book.BookId, _readerId);
                 bookingWindow.Show();
             }
         }
@@ -46,6 +49,28 @@ namespace ELibraryApp.Views
             AuthorizationWindow mainWindow = new AuthorizationWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
+            HistoryDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == _readerId).ToList();
+            AvailableBooksGrid.ItemsSource = eLibraryDBEntities.Books.Where(b => eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == _readerId && r.BookingStatusId == 4).Select(r => r.BookId).Contains(b.BookId)).ToList();
+            //AvailableBooksGrid.ItemsSource = eLibraryDBEntities.Books.Where(b => b.BookId == eLibraryDBEntities.BookReservationJournals.FirstOrDefault(r => r.ReaderId == _readerId && r.BookingStatusId == 4 && r.BookId == b.BookId).BookId).ToList();
+        }
+
+        private void ReadBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (AvailableBooksGrid.SelectedItems.Count > 0)
+            {
+                Book book = (Book)AvailableBooksGrid.SelectedItems[0];
+                MessageBox.Show("Книга: " + book.Name);
+            }
+        }
+
+        private void ReturnBookButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

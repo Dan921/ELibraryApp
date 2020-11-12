@@ -21,13 +21,16 @@ namespace ELibraryApp.Views
     public partial class LibrarianWindow : Window
     {
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
+        private int _userId;
 
-        public LibrarianWindow(int userId)
+        public void SetData(int userId)
+        {
+            _userId = userId;
+        }
+
+        public LibrarianWindow()
         {
             InitializeComponent();
-            ReadersDataGrid.ItemsSource = eLibraryDBEntities.Readers.ToList();
-            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
-            JournalDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
         }
 
         private void EditReaderButton_Click(object sender, RoutedEventArgs e)
@@ -35,7 +38,8 @@ namespace ELibraryApp.Views
             if (ReadersDataGrid.SelectedItems.Count > 0)
             {
                 Reader reader = (Reader)ReadersDataGrid.SelectedItems[0];
-                ReaderEditWindow readerEditWindow = new ReaderEditWindow(reader);
+                ReaderEditWindow readerEditWindow = new ReaderEditWindow();
+                readerEditWindow.SetData(reader);
                 readerEditWindow.Show();
             }
         }
@@ -52,7 +56,8 @@ namespace ELibraryApp.Views
             if (BooksDataGrid.SelectedItems.Count > 0)
             {
                 Book book = (Book)BooksDataGrid.SelectedItems[0];
-                BookWindow bookWindow = new BookWindow(book);
+                BookWindow bookWindow = new BookWindow();
+                bookWindow.SetData(book);
                 bookWindow.Show();
             }
         }
@@ -87,6 +92,13 @@ namespace ELibraryApp.Views
         private void DeleteJournalRecordButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReadersDataGrid.ItemsSource = eLibraryDBEntities.Readers.ToList();
+            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
+            JournalDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
         }
     }
 }

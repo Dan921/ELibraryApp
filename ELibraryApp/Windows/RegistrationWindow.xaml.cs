@@ -28,7 +28,6 @@ namespace ELibraryApp.Views
         public RegistrationWindow()
         {
             InitializeComponent();
-            BirthDatePicker.DisplayDate = DateTime.Now;
         }
 
         private void EnterButton_Click(object sender, RoutedEventArgs e)
@@ -96,6 +95,11 @@ namespace ELibraryApp.Views
         {
             PasswordHelper passwordHelper = new PasswordHelper();
             PassTextBox.Text = passwordHelper.GeneratePassword();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            BirthDatePicker.DisplayDate = DateTime.Now;
         }
     }
 }

@@ -5,29 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryApp.Views"
         mc:Ignorable="d"
-        Title="Кабинет библиотекаря" Height="450" Width="800">
+        Title="Кабинет библиотекаря" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
             <TabItem Header="Читатели">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid Name="ReadersDataGrid" HorizontalAlignment="Left" Height="391" VerticalAlignment="Top" Width="637"/>
+                    <DataGrid Name="ReadersDataGrid" HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="637"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="642,0,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="EditReaderButton_Click"/>
-                    <Button Content="Выход" HorizontalAlignment="Left" Margin="642,341,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
+                    <Button Content="Выход" HorizontalAlignment="Left" Margin="642,331,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Книги">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid Name="BooksDataGrid" HorizontalAlignment="Left" Height="391" VerticalAlignment="Top" Width="637"/>
+                    <DataGrid Name="BooksDataGrid" HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="637"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="642,0,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="EditBookButton_Click"/>
-                    <Button Content="Выход" HorizontalAlignment="Left" Margin="642,341,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
+                    <Button Content="Выход" HorizontalAlignment="Left" Margin="642,331,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="642,55,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="AddBookButton_Click"/>
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="642,110,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="DeleteBookButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Заявки">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid Name="JournalDataGrid" HorizontalAlignment="Left" Height="391" VerticalAlignment="Top" Width="637"/>
-                    <Button Content="Выход" HorizontalAlignment="Left" Margin="642,341,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
+                    <DataGrid Name="JournalDataGrid" HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="637"/>
+                    <Button Content="Выход" HorizontalAlignment="Left" Margin="642,331,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="642,0,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="EditJournalRecordButton_Click" />
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="642,55,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="DeleteJournalRecordButton_Click" />
                     <Button Content="Вывети новые" HorizontalAlignment="Left" Margin="642,110,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ShowNewJournalRecordsButton_Click" />

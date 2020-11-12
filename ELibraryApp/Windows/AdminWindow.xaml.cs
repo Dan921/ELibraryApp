@@ -19,7 +19,14 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public AdminWindow(int userId)
+        private int _userId;
+
+        public void SetData(int userId)
+        {
+            _userId = userId;
+        }
+
+        public AdminWindow()
         {
             InitializeComponent();
         }
