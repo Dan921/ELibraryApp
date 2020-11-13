@@ -21,7 +21,8 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class RegistrationWindow : Window
     {
-        ELibraryDBEntities eLibrary = new ELibraryDBEntities();
+        PasswordHelper passwordHelper = new PasswordHelper();
+        DBQueryHelper dBQueryHelper = new DBQueryHelper();
         User _user = new User();
         Reader _reader = new Reader();
 
@@ -40,16 +41,12 @@ namespace ELibraryApp.Views
                     _user.Password = PassTextBox.Text;
                     _user.IsBlocked = false;
                     _user.RoleId = 1;
-                    eLibrary.Users.Add(_user);
-                    eLibrary.SaveChanges();
                     _reader.FIO = FIOTextBox.Text;
                     _reader.BirthDate = BirthDatePicker.SelectedDate;
                     _reader.Phone = PhoneTextBox.Text;
                     _reader.IsCollegeEmployee = IsEmpCheckBox.IsChecked;
                     _reader.Rating = 0;
-                    _reader.UserId = eLibrary.Users.FirstOrDefault(u => u.Login == _user.Login).UserId;
-                    eLibrary.Readers.Add(_reader);
-                    eLibrary.SaveChanges();
+                    dBQueryHelper.AddUserWithReader(_reader, _user);
                     AuthorizationWindow mainWindow = new AuthorizationWindow();
                     mainWindow.Show();
                     this.Close();
@@ -93,7 +90,6 @@ namespace ELibraryApp.Views
 
         private void PasswordGenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            PasswordHelper passwordHelper = new PasswordHelper();
             PassTextBox.Text = passwordHelper.GeneratePassword();
         }
 

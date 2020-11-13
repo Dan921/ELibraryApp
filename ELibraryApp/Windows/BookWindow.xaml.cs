@@ -1,4 +1,5 @@
 ﻿using ELibraryApp.Database;
+using ELibraryApp.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class BookWindow : Window
     {
+        DBQueryHelper dBQueryHelper = new DBQueryHelper();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         Book _book = new Book();
 
@@ -36,33 +38,34 @@ namespace ELibraryApp.Views
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (ModelCheck())
             {
-                _book.Name = NameTextBox.Text;
-                _book.AuthorId = eLibraryDBEntities.Authors.FirstOrDefault(a => a.FIO == AuthorComboBox.SelectedItem.ToString()).AuthorId;
-                _book.PublishingYear = int.Parse(YearTextBox.Text);
-                _book.IsPublished = PublCheckBox.IsChecked;
-                _book.Description = DescTextBox.Text;
-                _book.Genre = GenreTextBox.Text;
-                _book.NumberOfCopies = int.Parse(NumOfCopTextBox.Text);
-                _book.PenaltyPoint = int.Parse(PenPointTextBox.Text);
-                _book.Tags = TagsTextBox.Text;
+                try
+                {
+                    _book.Name = NameTextBox.Text;
+                    _book.AuthorId = eLibraryDBEntities.Authors.FirstOrDefault(a => a.FIO == AuthorComboBox.SelectedItem.ToString()).AuthorId;
+                    _book.PublishingYear = int.Parse(YearTextBox.Text);
+                    _book.IsPublished = PublCheckBox.IsChecked;
+                    _book.Description = DescTextBox.Text;
+                    _book.Genre = GenreTextBox.Text;
+                    _book.NumberOfCopies = int.Parse(NumOfCopTextBox.Text);
+                    _book.PenaltyPoint = int.Parse(PenPointTextBox.Text);
+                    _book.Tags = TagsTextBox.Text;
 
-                if(_book.BookId == 0)
-                {
-                    eLibraryDBEntities.Books.Add(_book);
-                    eLibraryDBEntities.SaveChanges();
+                    if (_book.BookId == 0)
+                    {
+                        dBQueryHelper.AddBook(_book);
+                    }
+                    else
+                    {
+                        eLibraryDBEntities.SaveChanges();
+                    }
                     this.Close();
                 }
-                else
+                catch (Exception ex)
                 {
-                    eLibraryDBEntities.SaveChanges();
-                    this.Close();
+                    MessageBox.Show(ex.ToString());
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -80,6 +83,28 @@ namespace ELibraryApp.Views
                 NumOfCopTextBox.Text = _book.NumberOfCopies.ToString();
                 PenPointTextBox.Text = _book.PenaltyPoint.ToString();
                 TagsTextBox.Text = _book.Tags;
+            }
+        }
+
+        private bool ModelCheck()
+        {
+            string errors = "Ошибки:";
+            if (string.IsNullOrEmpty(NameTextBox.Text))
+            {
+                errors += "\nВведите название";
+            }
+            if (AuthorComboBox.SelectedItem == null)
+            {
+                errors += "\nВыберите автора";
+            }
+            if (errors == "Ошибки:")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(errors);
+                return false;
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using ELibraryApp.Database;
+using ELibraryApp.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class ReaderEditWindow : Window
     {
+        DBQueryHelper dBQueryHelper = new DBQueryHelper();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         Reader _reader = new Reader();
 
@@ -54,11 +56,37 @@ namespace ELibraryApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            FIOTextBox.Text = _reader.FIO;
-            PhoneTextBox.Text = _reader.Phone;
-            RatingTextBox.Text = _reader.Rating.ToString();
-            BirthDatePicker.SelectedDate = _reader.BirthDate;
-            IsEmpCheckBox.IsChecked = _reader.IsCollegeEmployee;
+            BirthDatePicker.DisplayDate = DateTime.Now;
+            if (_reader != null)
+            {
+                FIOTextBox.Text = _reader.FIO;
+                PhoneTextBox.Text = _reader.Phone;
+                RatingTextBox.Text = _reader.Rating.ToString();
+                BirthDatePicker.SelectedDate = _reader.BirthDate;
+                IsEmpCheckBox.IsChecked = _reader.IsCollegeEmployee;
+            }
+        }
+
+        private bool ModelCheck()
+        {
+            string errors = "Ошибки:";
+            if (string.IsNullOrEmpty(FIOTextBox.Text))
+            {
+                errors += "\nПоле ФИО должно быть заполнено";
+            }
+            if (string.IsNullOrEmpty(RatingTextBox.Text))
+            {
+                errors += "\nПоле Рейтинг должно быть заполнено";
+            }
+            if (errors == "Ошибки:")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(errors);
+                return false;
+            }
         }
     }
 }

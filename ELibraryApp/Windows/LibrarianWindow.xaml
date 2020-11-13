@@ -13,6 +13,8 @@
                     <DataGrid Name="ReadersDataGrid" HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="637"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="642,0,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="EditReaderButton_Click"/>
                     <Button Content="Выход" HorizontalAlignment="Left" Margin="642,331,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
+                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="642,55,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="AddReaderButton_Click"/>
+                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="642,110,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="DeleteReaderButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Книги">
@@ -22,6 +24,7 @@
                     <Button Content="Выход" HorizontalAlignment="Left" Margin="642,331,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="642,55,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="AddBookButton_Click"/>
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="642,110,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="DeleteBookButton_Click"/>
+                    <Button Content="Забронировать" HorizontalAlignment="Left" Margin="642,165,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ToBookButton_Click" Background="#FF5B5F56" BorderBrush="Black" FontSize="16" FontFamily="Arial"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Заявки">
@@ -29,8 +32,14 @@
                     <DataGrid Name="JournalDataGrid" HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="637"/>
                     <Button Content="Выход" HorizontalAlignment="Left" Margin="642,331,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ExitButton_Click"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="642,0,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="EditJournalRecordButton_Click" />
-                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="642,55,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="DeleteJournalRecordButton_Click" />
-                    <Button Content="Вывети новые" HorizontalAlignment="Left" Margin="642,110,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ShowNewJournalRecordsButton_Click" />
+                    <Button Content="Вывети новые" HorizontalAlignment="Left" Margin="642,55,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ShowNewJournalRecordsButton_Click" />
+                    <Button Content="Вывети все" HorizontalAlignment="Left" Margin="642,110,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="ShowAllJournalRecordsButton_Click" />
+                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="642,165,0,0" VerticalAlignment="Top" Width="134" Height="50" Click="DeleteJournalRecordButton_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="История">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="HistoryGrid" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="766" Margin="10,10,0,0"/>
                 </Grid>
             </TabItem>
         </TabControl>

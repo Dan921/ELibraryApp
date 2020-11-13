@@ -1,4 +1,6 @@
 ﻿using ELibraryApp.Database;
+using ELibraryApp.Logic;
+using ELibraryApp.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class LibrarianWindow : Window
     {
+        DBQueryHelper dBQueryHelper = new DBQueryHelper();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         private int _userId;
 
@@ -86,19 +89,62 @@ namespace ELibraryApp.Views
 
         private void EditJournalRecordButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (JournalDataGrid.SelectedItems.Count > 0)
+            {
+                BookReservationJournal bookReservationJournal = (BookReservationJournal)JournalDataGrid.SelectedItems[0];
+                JournalRecordEditWindow journalRecordEditWindow = new JournalRecordEditWindow();
+                journalRecordEditWindow.SetData(bookReservationJournal);
+                journalRecordEditWindow.Show();
+            }
         }
 
         private void DeleteJournalRecordButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (JournalDataGrid.SelectedItems.Count > 0)
+            {
+                BookReservationJournal bookReservationJournal = (BookReservationJournal)JournalDataGrid.SelectedItems[0];
+                dBQueryHelper.DeleteJournalRecord(bookReservationJournal);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ReadersDataGrid.ItemsSource = eLibraryDBEntities.Readers.ToList();
-            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
+            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.Where(b=>b.IsPublished == true).ToList();
             JournalDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
+            HistoryGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == eLibraryDBEntities.Readers.FirstOrDefault(re => re.UserId == _userId).ReaderId).ToList();
+        }
+
+        private void DeleteReaderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ReadersDataGrid.SelectedItems.Count > 0)
+            {
+                Reader reader = (Reader)ReadersDataGrid.SelectedItems[0];
+                dBQueryHelper.DeleteReaderWithUser(reader);
+            }
+        }
+
+        private void AddReaderButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReaderAddWindow readerAddWindow = new ReaderAddWindow();
+            readerAddWindow.Show();
+        }
+
+        private void ToBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (BooksDataGrid.SelectedItems.Count > 0)
+            {
+                Book book = (Book)BooksDataGrid.SelectedItems[0];
+                BookingWindow bookingWindow = new BookingWindow();
+                bookingWindow.SetData(book.BookId, eLibraryDBEntities.Readers.FirstOrDefault(re => re.UserId == _userId).ReaderId);
+                bookingWindow.Show();
+            }
+        }
+
+        private void ShowAllJournalRecordsButton_Click(object sender, RoutedEventArgs e)
+        {
+            JournalDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
+            JournalDataGrid.Items.Refresh();
         }
     }
 }

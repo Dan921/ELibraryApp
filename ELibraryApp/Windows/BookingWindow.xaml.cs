@@ -1,4 +1,5 @@
 ﻿using ELibraryApp.Database;
+using ELibraryApp.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class BookingWindow : Window
     {
+        DBQueryHelper dBQueryHelper = new DBQueryHelper();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         BookReservationJournal _bookReservationJournal = new BookReservationJournal();
         int _bookId;
@@ -45,8 +47,7 @@ namespace ELibraryApp.Views
                 _bookReservationJournal.BookingStatusId = 1;
                 _bookReservationJournal.ReaderId = _readerId;
                 _bookReservationJournal.BookId = _bookId;
-                eLibraryDBEntities.BookReservationJournals.Add(_bookReservationJournal);
-                eLibraryDBEntities.SaveChanges();
+                dBQueryHelper.AddJournalRecord(_bookReservationJournal);
                 this.Close();
             }
             catch (Exception ex)

@@ -58,19 +58,5 @@ namespace ELibraryApp.Views
             AvailableBooksGrid.ItemsSource = eLibraryDBEntities.Books.Where(b => eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == _readerId && r.BookingStatusId == 4).Select(r => r.BookId).Contains(b.BookId)).ToList();
             //AvailableBooksGrid.ItemsSource = eLibraryDBEntities.Books.Where(b => b.BookId == eLibraryDBEntities.BookReservationJournals.FirstOrDefault(r => r.ReaderId == _readerId && r.BookingStatusId == 4 && r.BookId == b.BookId).BookId).ToList();
         }
-
-        private void ReadBookButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (AvailableBooksGrid.SelectedItems.Count > 0)
-            {
-                Book book = (Book)AvailableBooksGrid.SelectedItems[0];
-                MessageBox.Show("Книга: " + book.Name);
-            }
-        }
-
-        private void ReturnBookButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

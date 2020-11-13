@@ -34,3 +34,7 @@ C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.csproj
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.exe
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.pdb
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\ELibraryApp.csprojAssemblyReference.cache
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Windows\JournalRecordEditWindow.g.cs
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Windows\ReaderAddWindow.g.cs
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Windows\JournalRecordEditWindow.baml
+C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\obj\Debug\Windows\ReaderAddWindow.baml
