@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Kupry\source\repos\ELibraryApp\ELibraryApp\App.xaml
-10898483731
+1111815695
 2-943427475
-26-105580225
+27725527287
 18-609124157
-Windows\AuthorizationWindow.xaml;Windows\AdminWindow.xaml;Windows\BookingWindow.xaml;Windows\BookWindow.xaml;Windows\JournalRecordEditWindow.xaml;Windows\LibrarianWindow.xaml;Windows\ReaderAddWindow.xaml;Windows\ReaderEditWindow.xaml;Windows\ReaderWindow.xaml;Windows\RegistrationWindow.xaml;
+Windows\AuthorizationWindow.xaml;Windows\AdminWindow.xaml;Windows\BookingWindow.xaml;Windows\BookWindow.xaml;Windows\EditUserWindow.xaml;Windows\JournalRecordEditWindow.xaml;Windows\LibrarianWindow.xaml;Windows\ReaderAddWindow.xaml;Windows\ReaderEditWindow.xaml;Windows\ReaderWindow.xaml;Windows\RegistrationWindow.xaml;
 
-True
+False
 

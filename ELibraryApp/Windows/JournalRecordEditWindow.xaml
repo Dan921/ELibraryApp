@@ -9,11 +9,12 @@
     <Grid>
         <Label Name="ReaderIdLabel" Content="Id Читателя: " HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
         <Label x:Name="BookIdLabel" Content="Id Книги: " HorizontalAlignment="Left" Margin="35,67,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
-        <Label x:Name="StartBookingDateLabel" Content="Дата начата бронирования: " HorizontalAlignment="Left" Margin="35,109,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
-        <Label x:Name="EndBookingDateLabel" Content="Дата конца бронирования: " HorizontalAlignment="Left" Margin="35,151,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
-        <Label Content="Статус" HorizontalAlignment="Left" Margin="35,193,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
-        <ComboBox x:Name="StatusComboBox" HorizontalAlignment="Left" Margin="114,193,0,0" VerticalAlignment="Top" Width="336" Height="37" FontSize="20" FontFamily="Arial"/>
-        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="144,260,0,0" VerticalAlignment="Top" Width="206" Height="56" FontFamily="Arial" Click="SaveButton_Click" FontSize="20"/>
+        <Label x:Name="StartBookingDateLabel" Content="Дата начата бронирования: " HorizontalAlignment="Left" Margin="36,143,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
+        <Label x:Name="EndBookingDateLabel" Content="Дата конца бронирования: " HorizontalAlignment="Left" Margin="36,181,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" RenderTransformOrigin="0.49,0.273"/>
+        <Label Content="Статус" HorizontalAlignment="Left" Margin="35,219,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
+        <ComboBox x:Name="StatusComboBox" HorizontalAlignment="Left" Margin="113,219,0,0" VerticalAlignment="Top" Width="336" Height="37" FontSize="20" FontFamily="Arial"/>
+        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="135,274,0,0" VerticalAlignment="Top" Width="206" Height="56" FontFamily="Arial" Click="SaveButton_Click" FontSize="20"/>
+        <Label x:Name="ResCodeLabel" Content="Код бронирования: " HorizontalAlignment="Left" Margin="35,105,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
 
     </Grid>
 </Window>

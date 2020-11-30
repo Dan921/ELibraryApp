@@ -35,7 +35,7 @@ namespace ELibraryApp
             User user = users.FirstOrDefault(u => u.Login == LoginTextBox.Text && u.Password == UserPassPasswordBox.Password);
             if (user == null)
             {
-                MessageBox.Show("Такого пользователя не существует");
+                MessageBox.Show("Неправильный логин или пароль");
             }
             else if (user.IsBlocked == true)
             {

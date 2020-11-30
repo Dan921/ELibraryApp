@@ -31,6 +31,7 @@ namespace ELibraryApp.Database
         public Nullable<bool> IsPublished { get; set; }
         public Nullable<int> PenaltyPoint { get; set; }
         public string Tags { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Author Author { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

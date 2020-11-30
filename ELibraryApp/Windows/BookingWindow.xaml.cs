@@ -21,7 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class BookingWindow : Window
     {
-        DBQueryHelper dBQueryHelper = new DBQueryHelper();
+        DBQuery dBQueryHelper = new DBQuery();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         BookReservationJournal _bookReservationJournal = new BookReservationJournal();
         int _bookId;
@@ -47,6 +47,7 @@ namespace ELibraryApp.Views
                 _bookReservationJournal.BookingStatusId = 1;
                 _bookReservationJournal.ReaderId = _readerId;
                 _bookReservationJournal.BookId = _bookId;
+                _bookReservationJournal.ReservationCode = GenerateReservationCode();
                 dBQueryHelper.AddJournalRecord(_bookReservationJournal);
                 this.Close();
             }
@@ -60,6 +61,11 @@ namespace ELibraryApp.Views
         {
             StartDatePicker.SelectedDate = DateTime.Now;
             EndDatePicker.SelectedDate = DateTime.Now;
+        }
+
+        private int GenerateReservationCode()
+        {
+            return new Random().Next(999, 9999);
         }
     }
 }

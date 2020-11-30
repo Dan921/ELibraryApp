@@ -21,9 +21,8 @@ namespace ELibraryApp.Windows
     /// </summary>
     public partial class ReaderAddWindow : Window
     {
-        PasswordHelper passwordHelper = new PasswordHelper();
-        ELibraryDBEntities eLibrary = new ELibraryDBEntities();
-        DBQueryHelper dBQueryHelper = new DBQueryHelper();
+        Password passwordHelper = new Password();
+        DBQuery dBQueryHelper = new DBQuery();
         Reader _reader = new Reader();
         User _user = new User();
 
@@ -48,9 +47,6 @@ namespace ELibraryApp.Windows
                     _reader.IsCollegeEmployee = IsEmpCheckBox.IsChecked;
                     _reader.Rating = 0;
                     dBQueryHelper.AddUserWithReader(_reader, _user);
-                    AuthorizationWindow mainWindow = new AuthorizationWindow();
-                    mainWindow.Show();
-                    this.Close();
                 }
                 catch (Exception ex)
                 {

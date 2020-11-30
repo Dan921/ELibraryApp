@@ -53,7 +53,7 @@ namespace ELibraryApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.ToList();
+            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.Where(b=>b.IsPublished == true && b.IsDeleted == false).ToList();
             HistoryDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == _readerId).ToList();
             AvailableBooksGrid.ItemsSource = eLibraryDBEntities.Books.Where(b => eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == _readerId && r.BookingStatusId == 4).Select(r => r.BookId).Contains(b.BookId)).ToList();
             //AvailableBooksGrid.ItemsSource = eLibraryDBEntities.Books.Where(b => b.BookId == eLibraryDBEntities.BookReservationJournals.FirstOrDefault(r => r.ReaderId == _readerId && r.BookingStatusId == 4 && r.BookId == b.BookId).BookId).ToList();

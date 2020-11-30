@@ -46,6 +46,7 @@
           <Property Name="IsPublished" Type="bit" />
           <Property Name="PenaltyPoint" Type="int" />
           <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Readers">
           <Key>
@@ -244,6 +245,7 @@
           <Property Name="IsPublished" Type="Boolean" />
           <Property Name="PenaltyPoint" Type="Int32" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
           <NavigationProperty Name="BookReservationJournals" Relationship="Self.FK_BookReservationJournal_Books" FromRole="Books" ToRole="BookReservationJournal" />
         </EntityType>
@@ -447,6 +449,7 @@
                 <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
                 <ScalarProperty Name="PenaltyPoint" ColumnName="PenaltyPoint" />
                 <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -101,8 +101,8 @@
     <Compile Include="Database\User.cs">
       <DependentUpon>ELibraryDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Logic\DBQueryHelper.cs" />
-    <Compile Include="Logic\PasswordHelper.cs" />
+    <Compile Include="Logic\DBQuery.cs" />
+    <Compile Include="Logic\Password.cs" />
     <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -111,6 +111,9 @@
     </Compile>
     <Compile Include="Windows\BookWindow.xaml.cs">
       <DependentUpon>BookWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditUserWindow.xaml.cs">
+      <DependentUpon>EditUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\JournalRecordEditWindow.xaml.cs">
       <DependentUpon>JournalRecordEditWindow.xaml</DependentUpon>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\BookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -216,6 +223,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\ELibraryDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -228,6 +236,5 @@
       <LastGenOutput>ELibraryDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

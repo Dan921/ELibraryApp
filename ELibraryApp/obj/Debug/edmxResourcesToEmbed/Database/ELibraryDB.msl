@@ -44,6 +44,7 @@
           <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
           <ScalarProperty Name="PenaltyPoint" ColumnName="PenaltyPoint" />
           <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

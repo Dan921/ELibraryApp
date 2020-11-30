@@ -36,7 +36,7 @@
                     <DataGrid Name="HistoryDataGrid" HorizontalAlignment="Left" Width="780" Margin="10,10,0,10"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Dsib rybgbub" BorderBrush="Black" Background="#FF937F5C">
+            <TabItem Header="Ваши книги" BorderBrush="Black" Background="#FF937F5C">
                 <Grid>
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

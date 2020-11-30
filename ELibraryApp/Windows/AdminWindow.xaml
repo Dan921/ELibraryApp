@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryApp.Views"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="Кабинет администратора" Height="477" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <DataGrid Name="UsersDataGrid" HorizontalAlignment="Left" Height="376" VerticalAlignment="Top" Width="637" Margin="10,45,0,0"/>
+        <Button Content="Изменить" HorizontalAlignment="Left" Margin="652,45,0,0" VerticalAlignment="Top" Width="124" Height="50" Click="EditUserButton_Click"/>
+        <Button Content="Выход" HorizontalAlignment="Left" Margin="652,371,0,0" VerticalAlignment="Top" Width="124" Height="50" Click="ExitButton_Click" RenderTransformOrigin="0.657,0.98"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="652,100,0,0" VerticalAlignment="Top" Width="124" Height="50" Click="AddUserButton_Click"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="652,155,0,0" VerticalAlignment="Top" Width="124" Height="50" Click="DeleteUserButton_Click"/>
+        <Button Content="Только читатели" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115" Height="30" Click="ShowOnlyReadersButton_Click"/>
+        <Button Content="Только библиотекари" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="140" Height="30" Click="ShowOnlyLibrariansButton_Click"/>
+        <Button Content="Все" HorizontalAlignment="Left" Margin="275,10,0,0" VerticalAlignment="Top" Width="50" Height="30" Click="ShowAllButton_Click"/>
     </Grid>
 </Window>

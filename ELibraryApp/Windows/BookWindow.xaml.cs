@@ -21,7 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class BookWindow : Window
     {
-        DBQueryHelper dBQueryHelper = new DBQueryHelper();
+        DBQuery dBQueryHelper = new DBQuery();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         Book _book = new Book();
 

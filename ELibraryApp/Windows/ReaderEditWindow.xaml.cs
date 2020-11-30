@@ -21,7 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class ReaderEditWindow : Window
     {
-        DBQueryHelper dBQueryHelper = new DBQueryHelper();
+        DBQuery dBQueryHelper = new DBQuery();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         Reader _reader = new Reader();
 
@@ -37,20 +37,23 @@ namespace ELibraryApp.Views
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (ModelCheck())
             {
-                _reader.FIO = FIOTextBox.Text;
-                _reader.Phone = PhoneTextBox.Text;
-                _reader.Rating = int.Parse(RatingTextBox.Text);
-                _reader.BirthDate = BirthDatePicker.SelectedDate;
-                _reader.IsCollegeEmployee = IsEmpCheckBox.IsChecked;
+                try
+                {
+                    _reader.FIO = FIOTextBox.Text;
+                    _reader.Phone = PhoneTextBox.Text;
+                    _reader.Rating = int.Parse(RatingTextBox.Text);
+                    _reader.BirthDate = BirthDatePicker.SelectedDate;
+                    _reader.IsCollegeEmployee = IsEmpCheckBox.IsChecked;
 
-                eLibraryDBEntities.SaveChanges();
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                    eLibraryDBEntities.SaveChanges();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 

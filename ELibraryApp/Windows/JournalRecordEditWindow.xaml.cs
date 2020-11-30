@@ -37,6 +37,7 @@ namespace ELibraryApp.Windows
         {
             ReaderIdLabel.Content += _bookReservationJournal.ReaderId.ToString();
             BookIdLabel.Content += _bookReservationJournal.BookId.ToString();
+            ResCodeLabel.Content += _bookReservationJournal.ReservationCode.ToString();
             StartBookingDateLabel.Content += _bookReservationJournal.BookingStartDate.ToString();
             EndBookingDateLabel.Content += _bookReservationJournal.BookingEndDate.ToString();
             StatusComboBox.ItemsSource = eLibraryDBEntities.BookingStatuses.Select(s => s.Name).ToList();
@@ -50,12 +51,32 @@ namespace ELibraryApp.Windows
                 _bookReservationJournal.BookingStatusId = StatusComboBox.SelectedIndex + 1;
 
                 eLibraryDBEntities.SaveChanges();
+
+                if(StatusComboBox.SelectedIndex + 1 == 5)
+                {
+                    ChangeRating();
+                }
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void ChangeRating()
+        {
+            Reader reader = eLibraryDBEntities.Readers.Find(_bookReservationJournal.ReaderId);
+            Book book = eLibraryDBEntities.Books.Find(_bookReservationJournal.BookId);
+            if (DateTime.Now < _bookReservationJournal.BookingEndDate)
+            {
+                reader.Rating += book.PenaltyPoint;
+            }
+            else
+            {
+                reader.Rating -= book.PenaltyPoint;
+            }
+            eLibraryDBEntities.SaveChanges();
         }
     }
 }

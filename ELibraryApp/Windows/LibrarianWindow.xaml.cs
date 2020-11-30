@@ -22,7 +22,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class LibrarianWindow : Window
     {
-        DBQueryHelper dBQueryHelper = new DBQueryHelper();
+        DBQuery dBQueryHelper = new DBQuery();
         ELibraryDBEntities eLibraryDBEntities = new ELibraryDBEntities();
         private int _userId;
 
@@ -110,7 +110,7 @@ namespace ELibraryApp.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ReadersDataGrid.ItemsSource = eLibraryDBEntities.Readers.ToList();
-            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.Where(b=>b.IsPublished == true).ToList();
+            BooksDataGrid.ItemsSource = eLibraryDBEntities.Books.Where(b=>b.IsDeleted == false).ToList();
             JournalDataGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.ToList();
             HistoryGrid.ItemsSource = eLibraryDBEntities.BookReservationJournals.Where(r => r.ReaderId == eLibraryDBEntities.Readers.FirstOrDefault(re => re.UserId == _userId).ReaderId).ToList();
         }

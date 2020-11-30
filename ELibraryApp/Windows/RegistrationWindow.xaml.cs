@@ -21,8 +21,7 @@ namespace ELibraryApp.Views
     /// </summary>
     public partial class RegistrationWindow : Window
     {
-        PasswordHelper passwordHelper = new PasswordHelper();
-        DBQueryHelper dBQueryHelper = new DBQueryHelper();
+        DBQuery dBQueryHelper = new DBQuery();
         User _user = new User();
         Reader _reader = new Reader();
 
@@ -90,7 +89,7 @@ namespace ELibraryApp.Views
 
         private void PasswordGenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            PassTextBox.Text = passwordHelper.GeneratePassword();
+            PassTextBox.Text = new Password().GeneratePassword();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
